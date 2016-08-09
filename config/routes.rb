@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   root 'storefront#all_items'
 
+  get 'categorical' => 'storefront#items_by_category'
+
+  get 'branding'=> 'storefront#items_by_brand'
+
   devise_for :users
   resources :categories
   resources :products
