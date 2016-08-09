@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :lineitems
+  resources :orders
   get 'storefront/all_items'
 
   get 'storefront/items_by_category'
