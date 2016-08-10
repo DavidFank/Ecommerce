@@ -1,19 +1,26 @@
 Rails.application.routes.draw do
-  resources :lineitems
-  resources :orders
-  get 'storefront/all_items'
-
-  get 'storefront/items_by_category'
-
-  get 'storefront/items_by_brand'
 
   root 'storefront#all_items'
+
+  post 'add_to_cart' => 'cart#add_to_cart'
+  get 'view_order' => 'cart#view_order'
+  get 'checkout' => 'cart#checkout'
+
+  resources :lineitems
+  resources :orders
+  devise_for :users
+  # get 'storefront/all_items'
+
+  # get 'storefront/items_by_category'
+
+  # get 'storefront/items_by_brand'
 
   get 'categorical' => 'storefront#items_by_category'
 
   get 'branding'=> 'storefront#items_by_brand'
 
-  devise_for :users
+  get 'all' => 'storefront#all_items'
+
   resources :categories
   resources :products
 

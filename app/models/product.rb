@@ -4,4 +4,5 @@ class Product < ActiveRecord::Base
  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
 	belongs_to :category
+	has_many :lineitems
 end
